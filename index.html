@@ -71,7 +71,9 @@
             <script>
               const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
               const form = document.forms['submit-to-google-sheet']
+              console.log("form submitted")
               const successMessage = document.querySelector('.js-success-message')
+              console.log("success")
               const errorMessage = document.querySelector('.js-error-message')
               form.addEventListener('submit', e => {
               e.preventDefault()
