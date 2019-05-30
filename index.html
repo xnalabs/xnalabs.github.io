@@ -21,22 +21,25 @@
   <!-- Custom styles for this template -->
   <link href="css/coming-soon.min.css" rel="stylesheet">
 
-<style type="text/css">
-  html, 
-  body {
-    height: 100%;
-  }
+  <style type="text/css">
+    html, 
+    body {
+      height: 100%;
+    }
   
-  body {
+    body {
       background-image: url("img/bcell.jpg");
       background-repeat: no-repeat;
       background-size: auto 100%;
       background-position: center;
       background-color: black;
 
-  }
+    }
+  
+    .hidden {
+      visibility: hidden;
+    }
   </style>
-
 </head>
 
 <body>
@@ -51,11 +54,49 @@
             <p class="mb-md-5">We're working hard to defeat Cancer!</p>
             <p class="mb-md-5">Sign up for updates!</p>
             <div class="input-group input-group-newsletter">
-              <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon">
-              <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">Notify Me!</button>
-              </div>
+              <form name="submit-to-google-sheet">
+                <input name="email" type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon">
+                <!-- <input name="email" type="email" placeholder="Email" required> -->
+                <!-- <input name="firstName" type="text" placeholder="First Name"> -->
+                <!-- <input name="lastName" type="text" placeholder="Last Name"> -->
+                <!-- <input name="phoneNo" type="tel" placeholder="Phone Number"> --> 
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button">Notify Me!</button>
+                </div>
+              </form>
+              
+              <p class="js-success-message hidden">Thank you!</p>
+              <p class="js-error-message hidden">Error!</p>
             </div>
+            <script>
+              const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
+              const form = document.forms['submit-to-google-sheet']
+              const successMessage = document.querySelector('.js-success-message')
+              const errorMessage = document.querySelector('.js-error-message')
+              form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                  .then(response => showSuccessMessage(response))
+                  .catch(error => showErrorMessage(error))
+              })
+
+              function showSuccessMessage (response) {
+                console.log('Thank You!', response)
+                setTimeout(() => {
+                  successMessage.classList.remove('hidden')
+                  loading.classList.add('hidden')
+                }, 10)
+                form.reset()
+              }
+
+              function showErrorMessage (error) {
+                console.error('Error!', error.message)
+                setTimeout(() => {
+                  errorMessage.classList.remove('hidden')
+                  loading.classList.add('hidden')
+                }, 10)
+              }
+            </script>
           </div>
         </div>
         <div class="row">
