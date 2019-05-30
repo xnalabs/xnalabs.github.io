@@ -35,10 +35,6 @@
       background-color: black;
 
     }
-  
-    .hidden {
-      visibility: hidden;
-    }
   </style>
 </head>
 
@@ -54,51 +50,11 @@
             <p class="mb-md-5">We're working hard to defeat Cancer!</p>
             <p class="mb-md-5">Sign up for updates!</p>
             <div class="input-group input-group-newsletter">
-              <form name="submit-to-google-sheet">
                 <input name="email" type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon">
-                <!-- <input name="email" type="email" placeholder="Email" required> -->
-                <input name="firstName" type=hidden value="XNA">
-                <input name="lastName" type=hidden value="Labs">
-                <input name="phoneNo" type=hidden value="1234567890"> 
                 <div class="input-group-append">
                   <button class="btn btn-secondary" type="button">Notify Me!</button>
                 </div>
-              </form>
-              
-              <p class="js-success-message hidden">Thank you!</p>
-              <p class="js-error-message hidden">Error!</p>
             </div>
-            <script>
-              const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
-              const form = document.forms['submit-to-google-sheet']
-              console.log("form submitted")
-              const successMessage = document.querySelector('.js-success-message')
-              console.log("success")
-              const errorMessage = document.querySelector('.js-error-message')
-              form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                  .then(response => showSuccessMessage(response))
-                  .catch(error => showErrorMessage(error))
-              })
-
-              function showSuccessMessage (response) {
-                console.log('Thank You!', response)
-                setTimeout(() => {
-                  successMessage.classList.remove('hidden')
-                  loading.classList.add('hidden')
-                }, 10)
-                form.reset()
-              }
-
-              function showErrorMessage (error) {
-                console.error('Error!', error.message)
-                setTimeout(() => {
-                  errorMessage.classList.remove('hidden')
-                  loading.classList.add('hidden')
-                }, 10)
-              }
-            </script>
           </div>
         </div>
         <div class="row">
