@@ -1,0 +1,227 @@
+/* xnalabs.com — parent brand site
+ * Type: shared with both products (DM Sans + Instrument Serif + Azeret Mono).
+ * Pill colors: xnacloud cyan→violet, drxna brand gradient.
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: #07090d url("../img/bcell.jpg") center 30% / cover no-repeat;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Hero — full-viewport stage with dark stripe overlay for text contrast.    */
+/* ------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark horizontal stripe — bcell breathes above and below, content sits on dark. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 9, 13, 0.05) 0%,
+    rgba(7, 9, 13, 0.10) 22%,
+    rgba(7, 9, 13, 0.78) 38%,
+    rgba(7, 9, 13, 0.90) 50%,
+    rgba(7, 9, 13, 0.78) 62%,
+    rgba(7, 9, 13, 0.10) 78%,
+    rgba(7, 9, 13, 0.05) 100%
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* Brand bar — logo top-left, label top-right.                                */
+/* ------------------------------------------------------------------------- */
+
+.brand-bar {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+.brand-bar img {
+  width: 180px;
+  height: auto;
+  opacity: 0.95;
+}
+.brand-meta {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Hero content — headline + actions, settles in on load.                    */
+/* ------------------------------------------------------------------------- */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 0 2rem;
+  animation: settle 0.8s ease-out both;
+}
+@keyframes settle {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+  margin: 0 auto;
+}
+.accent-serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Action pills — symmetric pair, each branded to its destination product.   */
+/* ------------------------------------------------------------------------- */
+
+.hero-actions {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 28px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cta-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s ease;
+  pointer-events: none;
+}
+.cta-text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.cta-text--mono {
+  font-family: 'Azeret Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.cta-text--sans {
+  font-weight: 600;
+}
+
+/* Hover expansion only on devices with real hover (mouse / trackpad).
+   Touch devices skip this — otherwise the first tap triggers the expansion
+   and the user has to tap again to follow the link. */
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover .cta-circle {
+    width: calc(100% + 16px);
+    border-radius: 32px;
+  }
+}
+/* Brief tap feedback on touch devices: subtle scale-up on press. */
+@media (hover: none) {
+  .cta:active .cta-circle {
+    transform: translate(-50%, -50%) scale(1.15);
+    transition: transform 0.12s ease;
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Responsive                                                                */
+/* ------------------------------------------------------------------------- */
+
+/* Tablet (600–900px): tighten the headline, let pills stack with comfortable gap. */
+@media (max-width: 900px) {
+  h1 { font-size: 3rem; }
+  .hero-actions { flex-wrap: wrap; gap: 32px; }
+}
+
+/* Phone (<600px): bcell scaled up 50%, dark band strengthened where text sits,
+   "Precision Medicine" forced onto its own line, brand-meta moves to bottom-right
+   so logo (top-left) and label (bottom-right) frame the page. */
+@media (max-width: 600px) {
+  body {
+    background: #07090d url("../img/bcell.jpg") center center / 150% no-repeat;
+  }
+  .hero::before {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 9, 13, 0.40) 0%,
+      rgba(7, 9, 13, 0.30) 22%,
+      rgba(7, 9, 13, 0.88) 38%,
+      rgba(7, 9, 13, 0.94) 55%,
+      rgba(7, 9, 13, 0.92) 70%,
+      rgba(7, 9, 13, 0.88) 82%,
+      rgba(7, 9, 13, 0.95) 100%
+    );
+  }
+  h1 { font-size: 2.25rem; line-height: 1.15; }
+  .accent-serif { display: block; margin-top: 0.15em; }
+  .hero-actions { gap: 24px; margin-top: 2rem; }
+  .brand-bar { top: 20px; left: 24px; right: 24px; }
+  .brand-bar img { width: 140px; }
+  .brand-bar .brand-meta { display: none; }
+  .brand-foot {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    z-index: 10;
+  }
+}
+/* Hide the bottom anchor on desktop — it lives in the brand bar there. */
+@media (min-width: 601px) {
+  .brand-foot { display: none; }
+}
+
+/* Landscape phones / very short viewports. */
+@media (max-height: 500px) {
+  .hero-content { padding: 0 1.5rem; }
+  h1 { font-size: 2rem; }
+  .hero-actions { margin-top: 1.25rem; gap: 24px; }
+}

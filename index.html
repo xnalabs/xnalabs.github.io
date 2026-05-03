@@ -1,125 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XNA Labs — your partner in precision medicine. Cloud biolab and clinical platform.">
+  <title>XNA Labs — Precision Medicine</title>
 
-  <title>XNA Labs</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap');
-  </style>
-
-  <!-- Custom styles for this template -->
-  <link href="css/coming-soon.min.css" rel="stylesheet">
-
-  <style type="text/css">
-    html, 
-    body {
-      height: 100%;
-    }
-  
-    body {
-      background-image: url("img/bcell.jpg");
-      background-repeat: no-repeat;
-      background-size: auto 100%;
-      background-position: center;
-      background-color: black;
-
-    }
-    .hidden {
-      visibility: hidden;
-    }
-  </style>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
-  <div class="masthead">
-    <div class="masthead-bg"></div>
-    <div class="container h-100">
-      <div style="position: absolute; left: 30px; top:15px" ><img src="./img/logo.svg" /></div>
-      <div class="row h-100">
-        <div class="col-12 my-auto">
-          <div class="masthead-content text-white py-5 py-md-0">
-            <h1 class="mb-3 maintxt">Your partner in Precision Medicine</h1>
-            <a href="https://xnacloud.com" style="text-decoration:none"><div class="explore"><div style="position: relative;"><div class="animate" style="background-color: #00C29499; position: absolute; left: 30px; top: -20px;"></div><div style="position: relative; font-size: 16px; font-family: 'Inter', sans-serif; font-weight: 600; color:#fff;">Explore the Lab</div></div></div></a>
-            <!-- <div class="explore"><a href="https://xnacloud.com" class="btn explorea" style="background-color: #fff; color: blue;">Explore the Lab</a></div> -->
-<!--             <h2 class="mb-3">The Future of Precision Medicine is here!</h2>
-            <p class="mb-md-5">We're working hard to defeat Cancer!</p> -->
-<!--             <p class="mb-md-5">Explore the Lab</p> -->
-<!--             <div class="input-group input-group-newsletter">
-                <form name="submit-to-google-sheet">
-                  <input name="email" type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon" required>
-                  <!-- <div class="input-group-append"> -->
-<!--                     <button class="btn btn-secondary" type="submit">Notify Me!</button> -->
-                  <!-- </div> -->
-<!--                 </form> -->
-<!--                 <p class="js-success-message hidden">&nbsp;Thank you!</p>
-                <p class="js-error-message hidden">&nbsp;Error!</p> -->
-<!--             </div> -->
-<!--             <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzkOeeJrvfITJMhZMcH197fcCiGyx-3onbFVWGtTWTfqDka_Gc/exec'
-                const form = document.forms['submit-to-google-sheet']
-                const successMessage = document.querySelector('.js-success-message')
-                const errorMessage = document.querySelector('.js-error-message')
-    
-                form.addEventListener('submit', e => {
-                e.preventDefault()
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    .then(response => showSuccessMessage(response))
-                    .catch(error => showErrorMessage(error))
-                })
-                
-                function showSuccessMessage (response) {
-                  console.log('Thank You!', response)
-                  setTimeout(() => {
-                    successMessage.classList.remove('hidden')
-                    loading.classList.add('hidden')
-                  }, 10)
-                  form.reset()
-                }
-                
-                function showErrorMessage (error) {
-                  console.error('Error!', error.message)
-                  setTimeout(() => {
-                    errorMessage.classList.remove('hidden')
-                    loading.classList.add('hidden')
-                  }, 10)
-                }
-              </script> -->
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 my-auto">
-<!--               <div class="masthead-content text-white mb-sm-auto">
-                  &nbsp;&nbsp;&nbsp;&nbsp;XNA Labs, Inc. <br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;3108 Patrick Henry Dr. <br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;Santa Clara, CA 95054
-              </div> -->
-          </div>
-        </div>
+  <section class="hero">
+    <div class="brand-bar">
+      <img src="./img/logo.svg" alt="XNA Labs">
+      <span class="brand-meta">Precision Medicine</span>
+    </div>
+
+    <div class="hero-content">
+      <h1>Your partner in <span class="accent-serif">Precision Medicine</span></h1>
+
+      <div class="hero-actions">
+        <a href="https://xnacloud.com" class="cta">
+          <span class="cta-circle" style="background: linear-gradient(90deg, #00D4FF99 0%, #A87CFF99 100%);"></span>
+          <span class="cta-text cta-text--mono">Explore the Lab</span>
+        </a>
+        <a href="https://drxna.com" class="cta">
+          <span class="cta-circle" style="background: linear-gradient(90deg, #FF3D0099 0%, #FF812099 50%, #00D4FF99 100%);"></span>
+          <span class="cta-text cta-text--sans">Empowering Clinics</span>
+        </a>
       </div>
     </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/coming-soon.min.js"></script>
-
+    <span class="brand-foot">Precision Medicine</span>
+  </section>
 </body>
-
 </html>
